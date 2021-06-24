@@ -8,9 +8,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from app import models
 
-
-engine = create_engine('mysql+pymysql://rafik:simplon@localhost/startups50')
-
 # C'est ici qu'on demande à notre appli flask d'acheminer toutes les demandes d'URL à la racine vers la fonction index()
 # A chaque fois qu'on ouvrira un navigateur pour accéder à l'indexe, c'est cette fonction qui sera appelé
 # @app.route est un décorateur de la varibale app qui va encapsuler la fonction index() et acheminer les demande vers cette fonction
@@ -39,4 +36,12 @@ def predict():
     predict = models.predict(mi, nop)
     date = datetime.datetime.now().strftime("%x %X")
     return render_template( 'predict.html', date=date, nop=nop, mi=mi, predict=predict)
+
+@app.route('/ajout_bien', methods = ['POST', 'GET'])
+def ajout_bien():
+    return render_template("Pages/formulaire_predict.html")
     
+@app.route('/modifier_bien', methods = ['POST', 'GET'])
+def modifier_bien():
+    data = models.sqldata()
+    return render_template("Pages/modifier_bien.html", data)

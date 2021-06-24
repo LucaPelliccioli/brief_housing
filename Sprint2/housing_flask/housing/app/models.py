@@ -98,3 +98,21 @@ def predict(mi, nop):
     model = load('app/model_poly.joblib')
     x = model.predict([[mi, nop]])[0]
     return round(x,2)
+
+
+def sqldata():
+
+    Base.metadata.create_all(engine)
+    session = Session()
+    # data est une liste de tuple
+    data = session.query(Prix_Median.longitude,
+                         Prix_Median.latitude,
+                         Prix_Median.housing_median_age,
+                         Prix_Median.total_rooms,
+                         Prix_Median.total_bedrooms,
+                         Prix_Median.population,
+                         Prix_Median.households,
+                         Prix_Median.median_income,
+                         Prix_Median.median_house_value).all()
+    session.close()
+    return pd.Dataframe(data)

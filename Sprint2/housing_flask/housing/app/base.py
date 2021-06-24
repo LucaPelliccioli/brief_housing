@@ -34,13 +34,13 @@ def connect_db(dico):
 d = {
     "connector": "postgresql",
     "user": "luca",
-    "pwd": "simplon",
+    "pwd": "fidelio",
     "host": "localhost",
     "port": "5432",
     "bdd": "housing",
 }
 
-engine = connect_db(d)*
+engine = connect_db(d)
 
 Session = sessionmaker(bind=engine)
 
