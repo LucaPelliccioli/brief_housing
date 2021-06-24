@@ -3,7 +3,7 @@
 """
 Created on Thu Jun 17 15:15:03 2021
 
-@author: simplon
+@author: g4 luca, souad, nga et rémi
 """
 
 from app.base import Base
