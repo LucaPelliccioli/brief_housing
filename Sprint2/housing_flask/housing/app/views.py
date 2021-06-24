@@ -23,7 +23,6 @@ def dashboard():
     date = datetime.datetime.now().strftime("%x %X")
     return render_template( 'dashboard.html', date=date)
 
-
 @app.route('/formulaire_predict')
 def formulaire_predict():
     date = datetime.datetime.now().strftime("%x %X")
@@ -44,4 +43,8 @@ def ajout_bien():
 @app.route('/modifier_bien', methods = ['POST', 'GET'])
 def modifier_bien():
     data = models.sqldata()
+<<<<<<< Updated upstream
     return render_template("Pages/modifier_bien.html", data)
+=======
+    return render_template("Pages/modifier_bien.html", d=data)
+>>>>>>> Stashed changes
