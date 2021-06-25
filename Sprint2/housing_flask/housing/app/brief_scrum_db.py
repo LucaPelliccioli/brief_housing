@@ -16,7 +16,7 @@ from prix_med import Prix_Median
 
 def initialize_db(s):
     filename = "housing.csv"
-    filepath = "/home/simplon/Documents/Brief_02_agile/"
+    filepath = "/home/simplon/Téléchargements/"
     data = pd.read_csv(filepath+filename)
     
     l_ocean_proximity = data['ocean_proximity'].drop_duplicates().tolist() # l.index()

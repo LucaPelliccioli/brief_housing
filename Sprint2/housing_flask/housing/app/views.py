@@ -26,7 +26,7 @@ def edit_camion():
 
 @app.route('/ajout_bien')
 def ajout_bien():
-    return render_template( 'ajout_bien.html')
+    return render_template( 'Pages/ajout_bien.html')
 
 @app.route('/modifier_bien')
 def modifier_bien():
@@ -48,10 +48,3 @@ def predict():
     predict = models.predict(mi, nop)
     return render_template( 'predict.html', nop=nop, mi=mi, predict=predict)
 
-@app.route('/ajout_bien', methods = ['POST', 'GET'])
-def ajout_bien():
-    #nop = request.form['ocean']
-    #mi = request.form['revenu']
-    #predict = models.predict(mi, nop)
-    date = datetime.datetime.now().strftime("%x %X")
-    return render_template( 'Pages/form_ajout_bien.html')

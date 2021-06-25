@@ -12,7 +12,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 import json
-
+#./app/
 with open('./app/.config.json', 'r') as fichier:
     data = json.load(fichier)
 
