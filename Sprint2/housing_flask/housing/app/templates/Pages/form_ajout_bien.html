@@ -1,0 +1,92 @@
+{% extends 'Shared/default.html' %}
+{% block body%}
+{% include 'Shared/menu.html'%}
+<div class="container-fluid">
+    <div class="row">
+      <br>
+    </div>
+    <div class="row"> 
+      <div class="col-2"> 
+      
+        {% include 'Shared/menu_recherche.html'%}
+      </div>
+      <div class="col-10">  
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-img">
+                        <img src="{{url_for('static', filename='Image/maisoncali.png')}}" alt="">
+                        <!--
+                            <img src="{{url_for('static', filename='Image/maisonCali.png')}}">
+                        -->
+                    </div>
+                    <div class="signup-form">
+                        <form method="POST" class="ajoute-bien-form" id="rajoute-bien-form">
+                            <h2>Formulaire d'ajout un nouveau bien</h2>
+                            <div class="form-group">
+                                <label for="ocean_proxi">Ocean Proximity </label>
+                                <div class="form-select">
+                                    <select name="ocean_proxi" id="ocean_proxi" placeholder="<1H ocean">
+                                        <option value=""></option>
+                                        <option value=5>&#60;1H ocean</option>
+                                        <option value=4>Near Bay</option>
+                                        <option value=3>Near ocean</option>
+                                        <option value=2>Island</option>
+                                        <option value=1>Inland</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="longtitude">Longtitude</label>
+                                    <input type="number" name="longtitude" id="longtitude" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="latitude">Latitude</label>
+                                    <input type="number" name="latitude" id="latitude" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="median_age">Median age of house</label>
+                                <input type="number" name="median_age" id="median_age" min=0>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="total_rooms">Total area of the house (Surface) </label>
+                                    <input type="number" name="total_rooms" id="total_rooms" min=1>
+                                </div>
+                                <div class="form-group">
+                                    <label for="total_bedrooms">Bedrooms </label>
+                                    <input type="number" name="total_bedrooms" id="total_bedrooms" min=1/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="population">Median population of city </label>
+                                    <input type="number" name="population" id="population" min=1>
+                                </div>
+                                <div class="form-group">
+                                    <label for="house_hold">Number of households </label>
+                                    <input type="number" name="house_hold" id="house_hold" min=1/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="median_income">Median income </label>
+                                <input type="number" name="median_income" id="median_income" min=0.1 placeholder="0.4999"/>
+                            </div>
+                            <div class="form-submit">
+                                <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
+                                <input type="submit" value="Add" class="submit" name="add" id="add" />
+                                <input type="submit" value="Cancel" class="submit" name="cancel" id="cancel" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+      </div>
+{% endblock%} 
+
+    <!-- JS -->
+     <!--  <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>JS -->
