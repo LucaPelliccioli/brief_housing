@@ -12,7 +12,9 @@
 .carousel-item img {
     width: 100%;
     min-height: 500px;
-    max-height: 500px
+    max-height: 500px;
+    object-fit: cover;
+    object-position: 50% 90%;
 }
 
 form.default {
