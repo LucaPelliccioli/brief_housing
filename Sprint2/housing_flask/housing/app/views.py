@@ -35,3 +35,11 @@ def predict():
     mi = request.form['revenu']
     predict = models.predict(mi, nop)
     return render_template( 'predict.html', nop=nop, mi=mi, predict=predict)
+
+@app.route('/ajout_bien', methods = ['POST', 'GET'])
+def ajout_bien():
+    #nop = request.form['ocean']
+    #mi = request.form['revenu']
+    #predict = models.predict(mi, nop)
+    date = datetime.datetime.now().strftime("%x %X")
+    return render_template( 'Pages/form_ajout_bien.html')
