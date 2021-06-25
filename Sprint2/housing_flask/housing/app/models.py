@@ -117,8 +117,6 @@ def sqldata():
                          Prix_Median.median_income,
                          Prix_Median.median_house_value).all()
     session.close()
-<<<<<<< Updated upstream
+
     return pd.Dataframe(data)
-=======
-    return pd.DataFrame(data)
->>>>>>> Stashed changes
+
