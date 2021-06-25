@@ -1,6 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary content-center" >
-  <img src="{{url_for('static', filename='Image/logo1.png')}}" width="100" height="45" class="d-inline-block align-top" alt="" loading="lazy">
+  <a href="{{url_for('index')}}">
+  <img src="{{url_for('static', filename='Image/logo1.png')}}" width="100" height="45" class="d-inline-block align-top" alt="" loading="lazy"></a>
     
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +14,7 @@
           Dasboard
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Choix1</a>
+          <a class="dropdown-item" href="{{url_for('dashboard')}}">Défault</a>
           
         </div>
       </li>
@@ -22,7 +23,7 @@
           Bien
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Estimer un bien</a>
+          <a class="dropdown-item" href="{{url_for('formulaire_predict')}}">Estimer un bien</a>
           <a class="dropdown-item" href="{{ url_for('ajout_bien' )}}">Ajouter Bien</a>
           <a class="dropdown-item" href="{{ url_for('modifier_bien' )}}">Modifier Bien</a>
           <a class="dropdown-item" href="#">Supprimer Bien</a>
@@ -82,9 +83,9 @@
       </div>
       <div class="modal-body">
 
-        <p> EstImmO </p>
-        <p> version 1.0 </p>...
-
+        <p>EstImmO </p>
+        <p>Version 0.1 </p><p>CANNES CEQ DEV IA Ecole Microsoft Intensive</p>
+        <p>Groupe 4: Souad, Nga, Luca et Rémi</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>

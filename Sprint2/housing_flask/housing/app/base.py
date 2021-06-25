@@ -11,36 +11,16 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base  
 from sqlalchemy.orm import sessionmaker
 
+import json
 
-def connect_db(dico):
+with open('./app/.config.json', 'r') as fichier:
+    data = json.load(fichier)
 
-    str_engine = (
-        dico["connector"]
-        + "://"
-        + dico["user"]
-        + ":"
-        + dico["pwd"]
-        + "@"
-        + dico["host"]
-        + ":"
-        + dico["port"]
-        + "/"
-        + dico["bdd"]
-    )
-    connect = create_engine(str_engine)
-    return connect
+db_string = data["connector"]+"://"+data['user']+":"+data['pwd']+"@"+data['host']+':'+data['port']+'/'+data['bd']
 
 
-d = {
-    "connector": "postgresql",
-    "user": "luca",
-    "pwd": "fidelio",
-    "host": "localhost",
-    "port": "5432",
-    "bdd": "housing",
-}
+engine = create_engine(db_string)
 
-engine = connect_db(d)
 
 Session = sessionmaker(bind=engine)
 

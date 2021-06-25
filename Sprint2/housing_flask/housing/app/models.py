@@ -35,18 +35,19 @@ def graphique():
     plt.gcf().subplots_adjust(wspace = 0.5, hspace = 0.5)
 
     plt.subplot(421)
-    sns.scatterplot(data=df_data, x="longitude", y="latitude")
-    plt.title("Distribution géographique des biens")
+    sns.scatterplot(data=df_data, x="longitude", y="latitude", hue='median_house_value')
+    plt.title("Distribution géographique des prix médians")
     plt.xticks(rotation=45)
     plt.xlabel('longitude')
     plt.ylabel('latitude')
     plt.axis("scaled")
 
     plt.subplot(422)
-    sns.distplot(df_data["median_house_value"])
-    plt.title("Distribution des biens suivant leur valeur ($) médiane")
+    sns.scatterplot(data=df_data, x="median_house_value", y="median_income", hue='ocean_proximity_str')
+    plt.title("Distribution des prix médians suivant les salaires médians")
     plt.xticks(rotation=45)
-    plt.xlabel('Valeur médiane en $')
+    plt.xlabel('Prix médians en $')
+    plt.ylabel('Salaires médians')
 
     plt.subplot(423)
     sns.distplot(df_data["total_rooms"])
@@ -90,7 +91,7 @@ def graphique():
     # plt.xlim(0, 300000)
     plt.xlabel('Age médian')
 
-    plt.savefig("app/static/img/dashboard.png")
+    plt.savefig("app/static/Image/dashboard.png")
     
     return None
 
