@@ -20,6 +20,18 @@ from app import models
 def index():
     return render_template( 'index.html')
 
+@app.route('/edit_camion')
+def edit_camion():
+    return render_template( 'edit_camion.html')
+
+@app.route('/ajout_bien')
+def ajout_bien():
+    return render_template( 'ajout_bien.html')
+
+@app.route('/modifier_bien')
+def modifier_bien():
+    return render_template( 'modifier_bien.html')
+
 @app.route('/dashboard')
 def dashboard():
     models.graphique()
