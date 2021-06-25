@@ -1,5 +1,4 @@
 # coding: utf8
-from app import app
 from flask import render_template, request, abort, redirect, url_for
 
 import pandas as pd
@@ -16,35 +15,35 @@ from app import models
 # @app.route est un décorateur de la varibale app qui va encapsuler la fonction index()
 # et acheminer les demande vers cette fonction
 
-@app.route('/')
-def index():
-    return render_template( 'index.html')
 
-@app.route('/edit_camion')
-def edit_camion():
-    return render_template( 'edit_camion.html')
+def init_app(app):
+    @app.route('/')
+    def index():
+        return render_template( 'index.html')
 
-@app.route('/ajout_bien')
-def ajout_bien():
-    return render_template( 'Pages/ajout_bien.html')
+    @app.route('/dashboard')
+    def dashboard():
+        models.graphique()
+        return render_template( 'dashboard.html')
 
-@app.route('/modifier_bien')
-def modifier_bien():
-    return render_template( 'modifier_bien.html')
+    @app.route('/formulaire_predict')
+    def formulaire_predict():
+        return render_template( 'formulaire_predict.html')
 
-@app.route('/dashboard')
-def dashboard():
-    models.graphique()
-    return render_template( 'dashboard.html')
+    @app.route('/predict', methods = ['POST', 'GET'])
+    def predict():
+        nop = request.form['ocean']
+        mi = request.form['revenu']
+        predict = models.predict(mi, nop)
+        return render_template( 'predict.html', nop=nop, mi=mi, predict=predict)
 
-@app.route('/formulaire_predict')
-def formulaire_predict():
-    return render_template( 'formulaire_predict.html')
+    @app.route('/ajout_bien', methods = ['POST', 'GET'])
+    def ajout_bien():
+        return render_template("Pages/form_ajout_bien.html")
+        
+    @app.route('/modifier_bien', methods = ['POST', 'GET'])
+    def modifier_bien():
+        data = models.sqldata()
+        return render_template("Pages/modifier_bien.html", d=data)
 
-@app.route('/predict', methods = ['POST', 'GET'])
-def predict():
-    nop = request.form['ocean']
-    mi = request.form['revenu']
-    predict = models.predict(mi, nop)
-    return render_template( 'predict.html', nop=nop, mi=mi, predict=predict)
 
