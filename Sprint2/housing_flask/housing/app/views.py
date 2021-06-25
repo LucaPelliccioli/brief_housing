@@ -1,5 +1,4 @@
 # coding: utf8
-from app import app
 from flask import render_template, request, abort, redirect, url_for
 
 import pandas as pd
